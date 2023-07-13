@@ -54,10 +54,10 @@ function App(): JSX.Element {
       const data: UserData[] = await response.json();
       if (data.length !== 0) {
         setSearchResults(data);
+      } else {
+        setSearchResults([]);
+        setError('Пользователь с таким номером или почтой не найден');
       }
-      setError('Пользователь с таким номером или почтой не найден');
-
-      setSearchResults(data);
     } catch (err) {
       setError(error);
     } finally {
